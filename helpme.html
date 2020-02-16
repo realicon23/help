@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        table,th,tr,td{
+            border:1px solid blue ;
+        }
+
+        .myTable {
+            margin-top: 20px;
+        }
+
+        .myForm {
+            margin-top: 20px;
+        }
+
+        .input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+</body>
+    <h1>Register your details</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <div id="container">
+
+        <div class="input">
+            <label for="email"><b>Email</b></label>
+            <input id="email" type="text" placeholder="Enter Email" name="email" required>
+        </div>
+
+        <div class="input">
+            <label for="Name"><b>Name</b></label>
+            <input id="name" type="text" placeholder="Enter Name" name="Name" required>
+        </div>
+
+        <div class="input">
+            <label for="About" style= box-sizing:border-box><b>About</b></label>
+            <textarea name="about" id="about" cols="30" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" value="submit" onclick="submits()">Submit</button>
+    </div>
+
+    <table class="myTable" style="width:100%">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>name</th> 
+                <th>About</th>
+            </tr>
+        </thead>
+        <tbody id="data-content"></tbody>
+    </table>
+    <!-- <button onclick="fillTable()" >Fill table</button> -->
+
+    
+    <script> 
+        const tableData= document.querySelector('#data-content');      
+        let data = []
+
+        function fillTable(email, name, about) { 
+            tableData.innerHTML += `
+            <tr>
+                <td>${email}</td> 
+                <td>${name}</td> 
+                <td>${about}</td>    
+            <tr>
+            `
+        }
+
+        function submits() {
+            const email = document.querySelector('#email').value;
+            const name = document.querySelector('#name').value;
+            const about = document.querySelector('#about').value;
+
+            // Fill the table with the inoutted details
+            fillTable(email, name, about);
+        }
+    </script>
+
+    
+
+</html>
